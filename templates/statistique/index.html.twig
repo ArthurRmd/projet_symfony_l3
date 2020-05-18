@@ -1,0 +1,28 @@
+{% extends 'layout/layout.html.twig' %}
+
+{% block title %}Hello TestController!{% endblock %}
+
+{% block content %}
+
+
+    {% for champion in champions %}
+        {# <h1> {{ dump(champion) }}</h1> #}
+
+        <div class="card m-5">
+            <div class="card-body row">
+                <div class="col-2">
+                    <img src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/{{ champion.image['full'] }}"
+                         alt="">
+                </div>
+                <div class="col-10">
+                <h3><a href="#"> {{ champion.id }} </a></h3>
+                <p> {{ champion.blurb }}</p>
+
+                </div>
+            </div>
+        </div>
+
+
+    {% endfor %}
+
+{% endblock %}
