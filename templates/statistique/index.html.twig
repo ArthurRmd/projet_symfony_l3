@@ -4,25 +4,109 @@
 
 {% block content %}
 
-
-    {% for champion in champions %}
-        {# <h1> {{ dump(champion) }}</h1> #}
-
-        <div class="card m-5">
-            <div class="card-body row">
-                <div class="col-2">
-                    <img src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/{{ champion.image['full'] }}"
-                         alt="">
-                </div>
-                <div class="col-10">
-                <h3><a href="#"> {{ champion.id }} </a></h3>
-                <p> {{ champion.blurb }}</p>
-
-                </div>
+    <div id="search-zone">
+        <div class="form-group row" style="margin-top: 40px">
+            <p> Nom du champion : </p>
+            <div class="col-sm-10">
+                <input type="text" class="form-control search"  placeholder="">
             </div>
         </div>
 
+        <ul class="list" style="list-style-type: none;">
 
-    {% endfor %}
+
+            {% for champion in champions %}
+                {# <h1> {{ dump(champion) }}</h1> #}
+
+                <li>
+                    <div class="card m-5">
+                        <div class="card-body row">
+                            <div class="col-2">
+                                <img src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/{{ champion.image['full'] }}"
+                                     alt="">
+                            </div>
+                            <div class="col-10">
+                                <h3 class="name"><a
+                                            href="{{ path('champion', {id: champion.key}) }}"> {{ champion.id }} </a>
+                                </h3>
+                                <p> {{ champion.blurb }}</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+
+            {% endfor %}
+        </ul>
+        <button type="button" class="btn btn-light jPaginateBack">Precedent</button>
+        <ul class="pagination"></ul>
+        <button type="button" class="btn btn-light jPaginateNext">Suivant</button>
+
+    </div>
+
+
+    <style>
+
+        .pagination {
+            display: inline-block;
+        }
+
+        .pagination li {
+            display: inline-block;
+            padding: 10px;
+            font-size: 18px;
+            color: black!important;
+            text-decoration: none;
+        }
+
+        .pagination .active {
+            font-size: 25px;
+            color: black!important;
+            text-decoration: none;
+        }
+
+         .disabled {
+            display : none!important;
+        }
+
+    </style>
+
+    <script>
+
+        var options = {
+            valueNames: ['name'],
+            page: 10,
+            pagination: {
+                innerWindow: 1,
+                left: 0,
+                right: 0,
+                paginationClass: "pagination",
+            }
+        };
+
+        var hackerList = new List('search-zone', options);
+
+        $('.jPaginateNext').on('click', function () {
+            var list = $('.pagination').find('li');
+            $.each(list, function (position, element) {
+                if ($(element).is('.active')) {
+                    $(list[position + 1]).trigger('click');
+                }
+            })
+        });
+
+
+        $('.jPaginateBack').on('click', function () {
+            var list = $('.pagination').find('li');
+            $.each(list, function (position, element) {
+                if ($(element).is('.active')) {
+                    $(list[position - 1]).trigger('click');
+                }
+            })
+        });
+
+    </script>
 
 {% endblock %}
+

@@ -1,0 +1,32 @@
+{% extends 'layout/layout.html.twig' %}
+
+{% block title %}Hello TestController!{% endblock %}
+
+{% block content %}
+
+    <div class="row" style="margin-top: 30px">
+        <div class="col-9"></div>
+        <div class="col-3 ">
+            <button type="button" class="btn btn-light "><a href="{{ path('index') }}">< Retour</a> </button>
+        </div>
+    </div>
+
+
+    <div class="card m-5">
+        <div class="card-body row">
+            <div class="col-2">
+                <img src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/{{ champion.image['full'] }}"
+                     alt="">
+            </div>
+            <div class="col-10">
+                <h3><a href="{{ path('champion', {id: champion.key}) }}"> {{ champion.id }} </a></h3>
+                <p> {{ champion.blurb }}</p>
+
+            </div>
+        </div>
+    </div>
+
+    {{ dump(champion) }}
+
+
+{% endblock %}
