@@ -59,8 +59,12 @@ class StatistiqueLolController extends AbstractController
         if (!$name) return $this->render('statistique/search_summoner.html.twig');
 
         $summoner = LeagueOfLegendApi::getSummoner($name);
-        dd($summoner);
-        return $this->render('statistique/summoner.html.twig', compact('summoner'));
+
+        return $this->json([
+            'view' => $this->render('statistique/summoner.html.twig', compact('summoner'))->getContent()
+        ]);
+
+
 
     }
 
