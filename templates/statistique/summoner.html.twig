@@ -1,0 +1,49 @@
+
+{% if summoner is not null %}
+
+    {% set summonerFlex  = summoner[0] %}
+    {% set summonerSolo  = summoner[1] %}
+
+    <div style="display:block; width:100%">
+
+        <h2 style="margin-bottom:50px"> Summoner : {{ summonerFlex['summonerName'] }}</h2>
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <p> Type Game : {{ summonerFlex['queueType'] }}</p>
+                <p> Tier : {{ summonerFlex['tier'] }}</p>
+                <p> Rank : {{ summonerFlex['rank'] }}</p>
+                <p> leaguePoints : {{ summonerFlex['leaguePoints'] }}</p>
+                <p> wins : {{ summonerFlex['wins'] }}</p>
+                <p> losses : {{ summonerFlex['losses'] }}</p>
+                <p> veteran : {% if summonerFlex['veteran'] %} true {% else %} false  {% endif %} </p>
+                <p> inactive : {% if summonerFlex['inactive'] %} true {% else %} false  {% endif %} </p>
+                <p> freshBlood : {% if summonerFlex['freshBlood'] %} true {% else %} false  {% endif %}  </p>
+                <p> hotStreak : {% if summonerFlex['hotStreak'] %} true {% else %} false  {% endif %} </p>
+            </div>
+
+            <div class="col-md-6">
+                <p> Type Game : {{ summonerSolo['queueType'] }}</p>
+                <p> Tier : {{ summonerSolo['tier'] }}</p>
+                <p> Rank : {{ summonerSolo['rank'] }}</p>
+                <p> leaguePoints : {{ summonerSolo['leaguePoints'] }}</p>
+                <p> wins : {{ summonerSolo['wins'] }}</p>
+                <p> losses : {{ summonerSolo['losses'] }}</p>
+                <p> veteran : {% if summonerSolo['veteran'] %} true {% else %} false  {% endif %} </p>
+                <p> inactive : {% if summonerSolo['inactive'] %} true {% else %} false  {% endif %} </p>
+                <p> freshBlood : {% if summonerSolo['freshBlood'] %} true {% else %} false  {% endif %}  </p>
+                <p> hotStreak : {% if summonerSolo['hotStreak'] %} true {% else %} false  {% endif %} </p>
+            </div>
+
+        </div>
+
+
+    </div>
+
+{% else  %}
+
+    <h1> Summoner not found </h1>
+
+{%  endif %}
+

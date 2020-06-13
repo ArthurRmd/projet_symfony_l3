@@ -21,7 +21,7 @@
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
             crossorigin="anonymous"></script>
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>f
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
 
     <title>Document</title>
 </head>
@@ -39,10 +39,44 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
+
                     <li class="nav-item active">
                         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                        <a class="nav-link" href="/login">Connexion <span class="sr-only">(current)</span></a>
                     </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/free-champions">Free Champion <span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/summoner"> Summoner <span class="sr-only">(current)</span></a>
+                    </li>
+
+                    {% if not app.user %}
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ path('security_login')}}">Connexion <span class="sr-only">(current)</span></a>
+                        </li>
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ path('security_registration')}}">Inscription <span class="sr-only">(current)</span></a>
+                        </li>
+
+                    {% else %}
+
+                        {{ dump(app.user) }}
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ path('security_logout')}}"> Déconnexion <span class="sr-only">(current)</span></a>
+                        </li>
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/user"> User : {{ app.user.username }} <span class="sr-only">(current)</span></a>
+                        </li>
+                    {% endif %}
+
+
+
+
+
                 </ul>
             </div>
         </div>

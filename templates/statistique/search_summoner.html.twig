@@ -1,0 +1,58 @@
+{% extends 'layout/layout.html.twig' %}
+
+{% block title %}Hello TestController!{% endblock %}
+
+{% block content %}
+
+
+    <br>
+    <br>
+
+    <div class="form-group row" style="margin-top: 40px">
+        <p> Nom du summoner : </p>
+        <div class="col-sm-10">
+            <input type="text" class="form-control search" placeholder="">
+        </div>
+
+
+    </div>
+
+    <div class="response" style="margin-top:50px">
+
+    </div>
+
+    <script>
+
+        function delay(callback, ms) {
+            var timer = 0;
+            return function () {
+                var context = this, args = arguments;
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    callback.apply(context, args);
+                }, ms || 0);
+            };
+        }
+
+        function ajax() {
+            document.querySelector('.response').innerHTML = ` {{ include('layout/loader.html.twig')}} `
+            const summonerName = document.querySelector('.search').value
+            fetch(`/summoner/${summonerName}`, {
+                method: 'GET',
+            })
+                .then(res => res.json())
+                .then(res => {
+                    console.log(res)
+                    document.querySelector('.response').innerHTML = res.view
+                })
+        }
+
+        document.querySelector('.search').addEventListener('keyup', delay(() => ajax(), 500))
+
+
+    </script>
+
+
+
+
+{% endblock %}
