@@ -7,7 +7,7 @@
     <div class="row" style="margin-top: 30px">
         <div class="col-9"></div>
         <div class="col-3 ">
-            <button type="button" class="btn btn-light "><a href="{{ path('index') }}">< Retour</a> </button>
+            <button type="button" class="btn btn-light "><a href="{{ path('index') }}">< Retour</a></button>
         </div>
     </div>
 
@@ -21,12 +21,70 @@
             <div class="col-10">
                 <h3><a href="{{ path('champion', {id: champion.key}) }}"> {{ champion.id }} </a></h3>
                 <p> {{ champion.blurb }}</p>
-
             </div>
+
+            <div class="col-12 title">
+                <h2> Part Type: {{ champion.partype }}</h2>
+            </div>
+
+            <div class="col-12 title">
+                <h2> Tags : </h2>
+                {% for tag in champion.tags %}
+                    <div class="col-12">
+                        <p>{{ tag }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+
+
+        <h2 class="col-12 title"> Info : </h2>
+        <div class="col-6">
+            <p> Attack : {{ champion.info.attack }}</p>
+            <p> Defense :{{ champion.info.defense }}</p>
         </div>
+        <div class="col-6">
+            <p> Magic :{{ champion.info.magic }}</p>
+            <p> Difficulty : {{ champion.info.difficulty }}</p>
+        </div>
+
+
+        <h2 class="col-12 title"> Stats : </h2>
+        <div class="col-6">
+            <p> hp : {{ champion.stats.hp }}</p>
+            <p> hpperlevel : {{ champion.stats.hpperlevel }}</p>
+            <p> mp : {{ champion.stats.mp }}</p>
+            <p> mpperlevel : {{ champion.stats.mpperlevel }}</p>
+            <p> movespeed : {{ champion.stats.movespeed }}</p>
+            <p> armor : {{ champion.stats.armor }}</p>
+            <p> armorperlevel : {{ champion.stats.armorperlevel }}</p>
+            <p> spellblock : {{ champion.stats.spellblock }}</p>
+            <p> spellblockperlevel : {{ champion.stats.spellblockperlevel }}</p>
+            <p> attackrange : {{ champion.stats.attackrange }}</p>
+        </div>
+        <div class="col-6">
+            <p> hpregen : {{ champion.stats.hpregen }}</p>
+            <p> hpregenperlevel : {{ champion.stats.hpregenperlevel }}</p>
+            <p> mpregen : {{ champion.stats.mpregen }}</p>
+            <p> mpregenperlevel : {{ champion.stats.mpregenperlevel }}</p>
+            <p> crit : {{ champion.stats.crit }}</p>
+            <p> critperlevel : {{ champion.stats.critperlevel }}</p>
+            <p> attackdamage : {{ champion.stats.attackdamage }}</p>
+            <p> attackdamageperlevel : {{ champion.stats.attackdamageperlevel }}</p>
+            <p> attackspeedperlevel : {{ champion.stats.attackspeedperlevel }}</p>
+            <p> attackspeed : {{ champion.stats.attackspeed }}</p>
+        </div>
+
+    </div>
     </div>
 
     {{ dump(champion) }}
 
 
+    <style>
+
+        .title {
+            margin-top: 30px;
+        }
+
+    </style>
 {% endblock %}
