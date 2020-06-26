@@ -1,0 +1,26 @@
+{% extends 'layout/layout.html.twig' %}
+
+{% block title %}Hello TestController!{% endblock %}
+
+{% block content %}
+
+
+    <br>
+    <br>
+
+    {% if not app.user %}
+
+        <h1> Vous n'etes pas connecté </h1>
+
+    {% else %}
+
+        <h1> Id : {{ app.user.id }}</h1>
+        <h1>Email : {{ app.user.email }}</h1>
+        <h1>Username : {{ app.user.username }}</h1>
+
+
+
+    {% endif %}
+
+
+{% endblock %}
