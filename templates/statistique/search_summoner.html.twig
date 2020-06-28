@@ -24,9 +24,9 @@
     <script>
 
         function delay(callback, ms) {
-            var timer = 0;
+            let timer = 0;
             return function () {
-                var context = this, args = arguments;
+                let context = this, args = arguments;
                 clearTimeout(timer);
                 timer = setTimeout(function () {
                     callback.apply(context, args);
@@ -35,16 +35,19 @@
         }
 
         function ajax() {
-            document.querySelector('.response').innerHTML = ` {{ include('layout/loader.html.twig')}} `
             const summonerName = document.querySelector('.search').value
-            fetch(`/summoner/${summonerName}`, {
-                method: 'GET',
-            })
-                .then(res => res.json())
-                .then(res => {
-                    console.log(res)
-                    document.querySelector('.response').innerHTML = res.view
+            if (summonerName !== "") {
+                document.querySelector('.response').innerHTML = ` {{ include('layout/loader.html.twig')}} `
+                fetch(`/summoner/${summonerName}`, {
+                    method: 'GET',
                 })
+                    .then(res => res.json())
+                    .then(res => {
+                        document.querySelector('.response').innerHTML = res.view
+                        console.log("Sresponse")
+                    })
+            }
+
         }
 
         document.querySelector('.search').addEventListener('keyup', delay(() => ajax(), 500))
