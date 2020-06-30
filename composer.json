@@ -1,6 +1,4 @@
 {
-    "name": "arthur-rmd/projet-symfony",
-    "description": "Projet Symfony pour la licence 3 Informatique.",
     "type": "project",
     "license": "proprietary",
     "require": {
@@ -29,6 +27,7 @@
         "symfony/twig-pack": "*",
         "symfony/validator": "5.0.*",
         "symfony/web-link": "5.0.*",
+        "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "5.0.*"
     },
     "require-dev": {
