@@ -96,6 +96,7 @@ class LeagueOfLegendApi
     public static function getSummoner(string $summonerName = "")
     {
         self::setUpApiKey();
+
         try {
             $summoner = self::callApi('https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/' . $summonerName . '?api_key=' . self::$apiKey)
                 ->toArray();
@@ -103,13 +104,10 @@ class LeagueOfLegendApi
             return null;
         }
 
-
         $summoner = self::callApi('https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/' . $summoner['id'] . '?api_key=' . self::$apiKey)
             ->toArray();
 
-        if(empty($summoner)) return null;
-
-        return $summoner;
+        return empty($summoner) ? null : $summoner;
 
     }
 

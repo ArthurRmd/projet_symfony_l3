@@ -11,8 +11,8 @@
         </div>
     </div>
 
-
     <div class="card m-5">
+
         <div class="card-body row">
             <div class="col-2">
                 <img src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/{{ champion.image['full'] }}"
@@ -47,7 +47,6 @@
             <p> Difficulty : {{ champion.info.difficulty }}</p>
         </div>
 
-
         <h2 class="col-12 title"> Stats : </h2>
         <div class="col-6">
             <p> hp : {{ champion.stats.hp }}</p>
@@ -77,14 +76,6 @@
     </div>
     </div>
 
-    {{ dump(champion) }}
 
-
-    <style>
-
-        .title {
-            margin-top: 30px;
-        }
-
-    </style>
 {% endblock %}
+

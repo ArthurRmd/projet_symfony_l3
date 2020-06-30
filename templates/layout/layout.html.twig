@@ -1,10 +1,13 @@
 <!doctype html>
 <html lang="fr">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
 
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -23,7 +26,12 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
 
-    <title>Document</title>
+    {{ encore_entry_link_tags('app') }}
+
+    {% block css %}
+    {% endblock %}
+
+    <title>Projet L3 - Symfony</title>
 </head>
 <body>
 
@@ -90,5 +98,7 @@
 
     </div>
 
+
+    {{ encore_entry_script_tags('app') }}
 </body>
 </html>
