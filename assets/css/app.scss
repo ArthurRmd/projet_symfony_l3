@@ -1,0 +1,38 @@
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination li {
+  display: inline-block;
+  padding: 10px;
+  font-size: 18px;
+  color: black!important;
+  text-decoration: none;
+}
+
+.pagination .active {
+  font-size: 25px;
+  color: black!important;
+  text-decoration: none;
+}
+
+.disabled {
+  display : none!important;
+}
+
+
+.loader {
+  margin: 0 0 2em;
+  height: 300px;
+  width: 50%;
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto 1em;
+  display: inline-block;
+  vertical-align: top;
+}
+
+svg path, svg rect {
+  fill: #FF6700;
+}
