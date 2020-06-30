@@ -1,7 +1,6 @@
 {
-    "name": "arthur-rmd/projet-symfony",
-    "description": "Projet Symfony pour la licence 3 Informatique.",
-
+    "name" : "arthur-rmd/projet-symfony",
+    "description" : "Projet symfony Licence 3 Inforlatique.",
     "type": "project",
     "license": "proprietary",
     "require": {
