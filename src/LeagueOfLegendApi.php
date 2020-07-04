@@ -71,12 +71,16 @@ class LeagueOfLegendApi
     }
 
 
-
     public static function getChampionRotation()
     {
         self::setUpApiKey();
-        $freeChampionsId = self::callApi('https://euw1.api.riotgames.com/lol/platform/v3/champion-rotations?api_key=' . self::$apiKey)
-            ->toArray();
+
+        try{
+            $freeChampionsId = self::callApi('https://euw1.api.riotgames.com/lol/platform/v3/champion-rotations?api_key=' . self::$apiKey)
+                ->toArray();
+        } catch(Exception $e) {
+            throw new Exception("Error Api Key");
+        }
 
         $champions = self::getAllChampions();
 

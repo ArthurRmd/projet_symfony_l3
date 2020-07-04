@@ -36,3 +36,24 @@
 svg path, svg rect {
   fill: #FF6700;
 }
+
+.btn-navbar {
+  margin-right: 10px;
+}
+
+
+
+.cards {
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 10px!important;
+  box-shadow: rgba(34,35,58,.2) 0 14px 80px;
+  box-sizing: border-box;
+  width: 95%;
+  margin-bottom: 30px;
+
+  .img-card {
+    margin-right: 20px;
+  }
+
+}

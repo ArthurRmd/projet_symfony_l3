@@ -12,8 +12,9 @@ function delay(callback, ms) {
 function ajax() {
     const summonerName = document.querySelector('.search').value
     if (summonerName !== "") {
+        document.querySelector('.response').innerHTML = ""
         loaderShow(true)
-        fetch(`/summoner/${summonerName}`, {
+        fetch(`/summoner-data/${summonerName}`, {
             method: 'GET',
         })
             .then(res => res.json())
@@ -33,4 +34,6 @@ function loaderShow( boolean) {
 }
 
 document.querySelector('.search').addEventListener('keyup', delay(() => ajax(), 500))
+document.querySelector('.btn-search').addEventListener('click',  () => ajax())
 
+if ( document.querySelector('.search').value !== "") ajax()

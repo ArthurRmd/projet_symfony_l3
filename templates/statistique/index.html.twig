@@ -14,15 +14,13 @@
 
         <ul class="list" style="list-style-type: none;">
 
-
             {% for champion in champions %}
-                {# <h1> {{ dump(champion) }}</h1> #}
 
                 <li>
-                    <div class="card m-5">
+                    <div class="card cards m-5">
                         <div class="card-body row">
                             <div class="col-2">
-                                <img src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/{{ champion.image['full'] }}"
+                                <img class="img-card" src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/{{ champion.image['full'] }}"
                                      alt="">
                             </div>
                             <div class="col-10">
@@ -32,6 +30,10 @@
                                 <p> {{ champion.blurb }}</p>
 
                             </div>
+
+                            <div class="col-12">
+                                <a type="button" class="btn btn-outline-primary float-right" href="{{ path('champion', {id: champion.key}) }}">Get more information</a>
+                            </div>
                         </div>
                     </div>
                 </li>
@@ -39,15 +41,14 @@
 
             {% endfor %}
         </ul>
+
         <button type="button" class="btn btn-light jPaginateBack">Precedent</button>
         <ul class="pagination"></ul>
         <button type="button" class="btn btn-light jPaginateNext">Suivant</button>
 
     </div>
 
-
     {{ encore_entry_script_tags('pagination') }}
-
 
 {% endblock %}
 

@@ -3,10 +3,10 @@
 namespace App\Controller;
 
 use App\LeagueOfLegendApi;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 class StatistiqueLolController extends AbstractController
 {
@@ -15,14 +15,13 @@ class StatistiqueLolController extends AbstractController
      */
     public function index()
     {
-
         $champions = LeagueOfLegendApi::getAllChampions();
         return $this->render('statistique/index.html.twig', compact('champions'));
     }
 
     /**
- * @Route("/champion/{id}", name="champion")
- */
+     * @Route("/champion/{id}", name="champion")
+     */
     public function showChampion(int $id)
     {
 
@@ -40,8 +39,14 @@ class StatistiqueLolController extends AbstractController
      */
     public function showFreeChampions()
     {
+        try {
+            $freeChampions = LeagueOfLegendApi::getChampionRotation();
+        } catch (Exception $e){
+            return $this->render('layout/error.html.twig', [
+                'message' =>$e->getMessage(),
+            ]);
+        }
 
-        $freeChampions = LeagueOfLegendApi::getChampionRotation();
         return $this->render('statistique/index.html.twig', [
             'champions' => $freeChampions,
         ]);
@@ -51,21 +56,26 @@ class StatistiqueLolController extends AbstractController
 
     /**
      * @Route("/summoner/{name?}", name="summoner")
+     * @param null $name
      * @return Response
      */
     public function summoner($name = null)
     {
+        return $this->render('statistique/search_summoner.html.twig', compact('name'));
+    }
 
-        if (!$name) return $this->render('statistique/search_summoner.html.twig');
-
+    /**
+     * @Route("/summoner-data/{name}", name="summoner-data")
+     * @param null $name
+     * @return Response
+     */
+    public function summonerData($name = null)
+    {
         $summoner = LeagueOfLegendApi::getSummoner($name);
 
         return $this->json([
             'view' => $this->render('statistique/summoner.html.twig', compact('summoner'))->getContent()
         ]);
-
-
-
     }
 
 
@@ -77,14 +87,6 @@ class StatistiqueLolController extends AbstractController
     {
         return $this->render('statistique/user.html.twig');
     }
-
-
-
-
-
-
-
-
 
 
 }

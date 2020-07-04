@@ -8,7 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 
-
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -38,67 +37,57 @@
 <div id="content">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
+        <a class="navbar-brand" href="/">Stat League Of Legend</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <a class="navbar-brand" href="#">Stat League Of Legend</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
 
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                    </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/free-champions">Free Champion <span class="sr-only">(current)</span></a>
+                </li>
 
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/free-champions">Free Champion <span class="sr-only">(current)</span></a>
-                    </li>
-
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/summoner"> Summoner <span class="sr-only">(current)</span></a>
-                    </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/summoner"> Summoner <span class="sr-only">(current)</span></a>
+                </li>
 
 
-                    {% if not app.user %}
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{ path('security_login') }}">Connexion <span class="sr-only">(current)</span></a>
-                        </li>
+            </ul>
 
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{ path('security_registration') }}">Inscription <span
-                                        class="sr-only">(current)</span></a>
-                        </li>
+            {% if not app.user %}
+                <a class="btn btn-light btn-navbar" href="{{ path('security_login') }}">Connexion </a>
 
-                    {% else %}
+                <a class="btn btn-light btn-navbar" href="{{ path('security_registration') }}">Inscription </a>
 
-                        {% dump(app.user) %}
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{ path('security_logout') }}"> Déconnexion <span
-                                        class="sr-only">(current)</span></a>
-                        </li>
-
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/user"> User : {{ app.user.username }} <span class="sr-only">(current)</span></a>
-                        </li>
-                    {% endif %}
+            {% else %}
 
 
-                </ul>
-            </div>
+                <a class="btn btn-light btn-navbar" href="/user"> User : {{ app.user.username }}</a>
+
+                <a class="btn btn-light btn-navbar" href="{{ path('security_logout') }}"> Déconnexion </a>
+
+            {% endif %}
+
         </div>
     </nav>
+
 
     <div class="container">
         {% block content %}
         {% endblock %}
-        {#  {% include 'layout/footer.html.twig' %}     </div> #}
-
-
+        {% include 'layout/footer.html.twig' %}
     </div>
 
 
-    {{ encore_entry_script_tags('app') }}
+</div>
+
+
+{{ encore_entry_script_tags('app') }}
 </body>
 </html>
