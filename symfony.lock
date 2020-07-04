@@ -5,6 +5,9 @@
     "amphp/byte-stream": {
         "version": "v1.7.3"
     },
+    "arthur-rmd/time-exec": {
+        "version": "1.0.1"
+    },
     "composer/semver": {
         "version": "3.0.0"
     },

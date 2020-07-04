@@ -1,7 +1,5 @@
 {% extends 'layout/layout.html.twig' %}
 
-{% block title %}Hello TestController!{% endblock %}
-
 {% block content %}
 
     <div id="search-zone">
@@ -18,17 +16,18 @@
 
                 <li>
                     <div class="card cards m-5">
+
                         <div class="card-body row">
                             <div class="col-2">
                                 <img class="img-card" src="http://ddragon.leagueoflegends.com/cdn/10.10.3208608/img/champion/{{ champion.image['full'] }}"
                                      alt="">
                             </div>
+
                             <div class="col-10">
                                 <h3 class="name"><a
                                             href="{{ path('champion', {id: champion.key}) }}"> {{ champion.id }} </a>
                                 </h3>
                                 <p> {{ champion.blurb }}</p>
-
                             </div>
 
                             <div class="col-12">
@@ -38,8 +37,8 @@
                     </div>
                 </li>
 
-
             {% endfor %}
+
         </ul>
 
         <button type="button" class="btn btn-light jPaginateBack">Precedent</button>

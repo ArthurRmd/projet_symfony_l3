@@ -68,7 +68,7 @@
             {% else %}
 
 
-                <a class="btn btn-light btn-navbar" href="/user"> User : {{ app.user.username }}</a>
+                <a class="btn btn-light btn-navbar" href="{{ path('summoner', {name:app.user.username}) }}"> User : {{ app.user.username }}</a>
 
                 <a class="btn btn-light btn-navbar" href="{{ path('security_logout') }}"> Déconnexion </a>
 

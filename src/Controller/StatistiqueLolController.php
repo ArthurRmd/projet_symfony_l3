@@ -21,38 +21,31 @@ class StatistiqueLolController extends AbstractController
 
     /**
      * @Route("/champion/{id}", name="champion")
+     * @param int $id
+     * @return Response
      */
     public function showChampion(int $id)
     {
-
         $champion = LeagueOfLegendApi::getChampion($id);
 
-        if (!$champion) return $this->render('statistique/champion_not_found.html.twig');
-
-        return $this->render('statistique/champion.html.twig', compact('champion'));
-
+        return (!$champion)
+            ? $this->render('statistique/champion_not_found.html.twig')
+            : $this->render('statistique/champion.html.twig', compact('champion'));
     }
 
-
     /**
-     * @Route("/free-champions", name="free_champion")
+     * @Route("/free-champions", name="free-champion")
      */
     public function showFreeChampions()
     {
         try {
-            $freeChampions = LeagueOfLegendApi::getChampionRotation();
+            $champions = LeagueOfLegendApi::getChampionRotation();
         } catch (Exception $e){
-            return $this->render('layout/error.html.twig', [
-                'message' =>$e->getMessage(),
-            ]);
+            $this->errorPage($e->getMessage());
         }
 
-        return $this->render('statistique/index.html.twig', [
-            'champions' => $freeChampions,
-        ]);
-
+        return $this->render('statistique/index.html.twig', compact('champions'));
     }
-
 
     /**
      * @Route("/summoner/{name?}", name="summoner")
@@ -78,7 +71,6 @@ class StatistiqueLolController extends AbstractController
         ]);
     }
 
-
     /**
      * @Route("/user", name="user")
      * @return Response
@@ -86,6 +78,12 @@ class StatistiqueLolController extends AbstractController
     public function user()
     {
         return $this->render('statistique/user.html.twig');
+    }
+
+    private function errorPage($message = ""){
+        return $this->render('layout/error.html.twig', [
+            'message' => $message,
+        ]);
     }
 
 

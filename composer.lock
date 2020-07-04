@@ -4,8 +4,45 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c90b4f1bc38f911279a66208d24015ad",
+    "content-hash": "81e510c82c0773b1e9c3edacd62ad10e",
     "packages": [
+        {
+            "name": "arthur-rmd/time-exec",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ArthurRmd/TimeExec-PHP.git",
+                "reference": "11afa9a0b4b5f0dda54f4bee1b954205bdac1722"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ArthurRmd/TimeExec-PHP/zipball/11afa9a0b4b5f0dda54f4bee1b954205bdac1722",
+                "reference": "11afa9a0b4b5f0dda54f4bee1b954205bdac1722",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "TimeExec\\": "src//"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ArthurRmd",
+                    "email": "arthur.remond@protonmail.com"
+                }
+            ],
+            "description": "Quickly test the execution time of a php script",
+            "keywords": [
+                "microtime",
+                "time execution"
+            ],
+            "time": "2019-10-30T12:11:28+00:00"
+        },
         {
             "name": "doctrine/annotations",
             "version": "1.10.2",
