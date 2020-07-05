@@ -6,7 +6,7 @@ Environment utilisé pour le développement
 * Linux
 
 
-###Installation du projet 
+### Installation du projet 
 
 ```bash
   git clone https://github.com/ArthurRmd/projet_symfony_l3
