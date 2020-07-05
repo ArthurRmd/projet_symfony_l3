@@ -1,27 +1,26 @@
 
 .pagination {
   display: inline-block;
-}
 
-.pagination li {
-  display: inline-block;
-  padding: 10px;
-  font-size: 18px;
-  color: black!important;
-  text-decoration: none;
-}
+  li {
+    display: inline-block;
+    padding: 10px;
+    font-size: 18px;
+    color: black!important;
+    text-decoration: none;
+  }
 
-.pagination .active {
-  font-size: 25px;
-  color: black!important;
-  text-decoration: none;
+  .active {
+    font-size: 25px;
+    color: black!important;
+    text-decoration: none;
+  }
+
 }
 
 .disabled {
   display : none!important;
 }
-
-
 
 .cards {
   background-color: #fff;
@@ -36,4 +35,8 @@
     margin-right: 20px;
   }
 
+}
+
+.form {
+  margin-top: 50px;
 }

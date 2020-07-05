@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    {{ form_start(form) }}
+    {{ form_start(form, { 'attr':  {'class': 'form'}}) }}
 
         <div class="form-group">
             {{ form_row(form.username, { 'attr':  {'class': 'form-control'}, 'label': 'Summoner name'}) }}
