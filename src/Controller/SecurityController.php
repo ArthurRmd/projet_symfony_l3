@@ -16,7 +16,7 @@ class SecurityController extends AbstractController
 
 
     /**
-     * @Route("/inscription", name="security_registration")
+     * @Route("/registration", name="security_registration")
      * @param Request $request
      * @param EntityManagerInterface $manager
      * @param UserPasswordEncoderInterface $encoder
@@ -60,6 +60,15 @@ class SecurityController extends AbstractController
     public function logout()
     {
 
+    }
+
+    /**
+     * @Route("/user", name="user")
+     * @return Response
+     */
+    public function user()
+    {
+        return $this->render('statistique/user.html.twig');
     }
 
 
