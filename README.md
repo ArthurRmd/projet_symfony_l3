@@ -29,6 +29,12 @@ Mettre votre config de Database dans le **.env**
 DATABASE_URL=mysql://user:password@127.0.0.1:3306/db_name?serverVersion=5.7
 ```
 
+Effectuer les migrations
+```env
+    php bin/console doctrine:migration:generate
+    php bin/console doctrine:migration:migrate
+```
+
 
 Mettre la clef d'Api de Riot Game disponible ici https://developer.riotgames.com/ dans le **.env** 
 ```env
@@ -53,7 +59,7 @@ API_KEY=_YOUR_API_KEY
 - fonctionnalité : pagination, recherche instantané
 
 <p align="center">
-    <img src="https://github.com/ArthurRmd/php-timer/projet_symfony_l3/readme_assets/champion.gif" width="600" alt="php-timer">
+    <img src="https://github.com/ArthurRmd/projet_symfony_l3/blob/master/readme_asset/champion.gif" width="600" >
 </p>
 
 
@@ -82,7 +88,7 @@ API_KEY=_YOUR_API_KEY
 - description : Redirige automatiquement vers la page summoner, est effectue la requête ajax automatiquement 
 
 <p align="center">
-    <img src="https://github.com/ArthurRmd/php-timer/projet_symfony_l3/readme_assets/summoner.gif" width="600" alt="php-timer">
+    <img src="https://github.com/ArthurRmd/projet_symfony_l3/blob/master/readme_asset/summoner.gif" width="600" alt="php-timer">
 </p>
 
 ##### Page login
