@@ -142,7 +142,7 @@ a notre page.
 Utilisation de psalm afin de pouvoir analyser le code est détecter des ou de potencielle erreur(s).
 
 ```bash
-composer format
+composer psalm
 ```
 
 ##### Utilisation de GitHub Action
