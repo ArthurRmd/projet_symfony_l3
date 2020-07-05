@@ -13,6 +13,7 @@ class ChampionController extends AbstractController
 
     /**
      * @Route("/", name="index")
+     *  Affiche tous les champions
      */
     public function index()
     {
@@ -24,6 +25,7 @@ class ChampionController extends AbstractController
      * @Route("/champion/{id}", name="champion")
      * @param int $id
      * @return Response
+     * Affiche un champion par son id
      */
     public function showChampion(int $id)
     {
@@ -36,22 +38,19 @@ class ChampionController extends AbstractController
 
     /**
      * @Route("/free-champions", name="free-champion")
+     *  Affiche les champions gratuit
      */
     public function showFreeChampions()
     {
         try {
             $champions = LeagueOfLegendApi::getChampionRotation();
         } catch (Exception $e){
-            return $this->errorPage($e->getMessage());
+            $message = $e->getMessage();
+            return $this->render('layout/error.html.twig', compact('message'));
         }
 
         return $this->render('champion/index.html.twig', compact('champions'));
     }
 
 
-    private function errorPage($message = ""){
-        return $this->render('layout/error.html.twig', [
-            'message' => $message,
-        ]);
-    }
 }

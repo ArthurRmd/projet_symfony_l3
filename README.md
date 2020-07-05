@@ -9,7 +9,11 @@ Environment utilisé pour le développement
 ###Installation du projet 
 
 ```bash
-   git clone https://github.com/ArthurRmd/projet_symfony_l3
+  git clone https://github.com/ArthurRmd/projet_symfony_l3
+```
+
+```bash
+   cd projet_symfony_l3
    ```
 
 ```bash
@@ -44,7 +48,7 @@ API_KEY=_YOUR_API_KEY
 ### Lancer le projet
 
 ```bash
-    cd /..../projet_symfony_l3/public
+    cd public
     php -S localhost:8000   
 ```
 
@@ -111,6 +115,15 @@ API_KEY=_YOUR_API_KEY
 - description : Permet de se déconnecter
 
 <br>
+
+##### Page user
+
+- url : `` /user ``
+- description : Affiche les infos de l'user connecté
+
+<br>
+
+
 
 ### Technologie utilisé
 

@@ -4,16 +4,18 @@
 
 {% block content %}
 
-    {% if not app.user %}
+    <div class="title">
+        {% if not app.user %}
 
-        <h1> Vous n'etes pas connecté </h1>
+            <h1> Vous n'etes pas connecté </h1>
 
-    {% else %}
+        {% else %}
 
-        <h1> Id : {{ app.user.id }}</h1>
-        <h1>Email : {{ app.user.email }}</h1>
-        <h1>Username : {{ app.user.username }}</h1>
+            <h1> Id : {{ app.user.id }}</h1>
+            <h1>Email : {{ app.user.email }}</h1>
+            <h1>Username : {{ app.user.username }}</h1>
 
-    {% endif %}
+        {% endif %}
+    </div>
 
 {% endblock %}

@@ -21,6 +21,7 @@ class SecurityController extends AbstractController
      * @param EntityManagerInterface $manager
      * @param UserPasswordEncoderInterface $encoder
      * @return Response
+     * Permet d'enregistrer l'user en base
      */
     public function registration(Request $request, EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder)
     {
@@ -48,6 +49,7 @@ class SecurityController extends AbstractController
 
     /**
      * @Route("/login", name="security_login")
+     * Page de connexion
      */
     public function login()
     {
@@ -65,10 +67,11 @@ class SecurityController extends AbstractController
     /**
      * @Route("/user", name="user")
      * @return Response
+     * Affiche les infos d'un user
      */
     public function user()
     {
-        return $this->render('statistique/user.html.twig');
+        return $this->render('security/user.html.twig');
     }
 
 
